@@ -1,4 +1,6 @@
-# HCL Parser
+![Go](https://github.com/eu-evops/terraform-hcl-parser-node/workflows/Go/badge.svg)
+
+# Terraform HCL Parser for Node.js
 
 Using gopherjs to transpile Hashicorp's HCL into javascript.
 
