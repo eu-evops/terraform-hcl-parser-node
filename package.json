@@ -1,0 +1,33 @@
+{
+  "name": "@evops/hlc-parser",
+  "version": "1.0.0",
+  "description": "HLC parser for Terraform HLC modules",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "pretest": "GOPATH=$PWD/vendor gopherjs build . -o dist/index.js",
+    "test": "npx mocha $(find . -name '*.spec.js' -not -path './node_modules/*')"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eu-evops/terraform-hcl-parser-node.git"
+  },
+  "keywords": [
+    "terraform",
+    "hlc",
+    "parser"
+  ],
+  "author": "Stanislaw Wozniak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eu-evops/terraform-hcl-parser-node/issues"
+  },
+  "homepage": "https://github.com/eu-evops/terraform-hcl-parser-node#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "supertest": "^6.0.1"
+  }
+}
