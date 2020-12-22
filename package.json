@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "pretest": "GOPATH=$PWD/vendor gopherjs build . -o dist/index.js",
+    "pretest": "rm -fr ./vendor/src && ln -s ../vendor/ ./vendor/src && GOPATH=$PWD/vendor gopherjs build . -o dist/index.js",
     "test": "npx mocha $(find . -name '*.spec.js' -not -path './node_modules/*')"
   },
   "repository": {
