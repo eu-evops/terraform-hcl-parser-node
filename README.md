@@ -1,4 +1,4 @@
-![Go](https://github.com/eu-evops/terraform-hcl-parser-node/workflows/Go/badge.svg)
+![Go](https://github.com/eu-evops/terraform-hcl-terraform-parser-node/workflows/Go/badge.svg)
 
 # Terraform HCL Parser for Node.js
 
@@ -10,7 +10,7 @@ Inspired by [anhldbk/hcl-parser](https://github.com/anhldbk/hcl-parser)
 
 ```javascript
 const fs = require('fs');
-const parser = require('@evops/hcl-parser');
+const parser = require('@evops/hcl-terraform-parser');
 
 const content = fs.readFileSync('main.tf');
 const hclFile = parser.parse(content);

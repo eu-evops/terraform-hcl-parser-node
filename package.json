@@ -1,13 +1,18 @@
 {
-  "name": "@evops/hcl-parser",
+  "name": "@evops/hcl-terraform-parser",
   "version": "1.0.0",
   "description": "HLC parser for Terraform HLC modules",
   "main": "index.js",
   "directories": {
-    "test": "tests"
+    "tests": "tests",
+    "dist": "dist"
   },
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
-    "pretest": "rm -fr ./vendor/src && ln -s ../vendor/ ./vendor/src && GOPATH=$PWD/vendor gopherjs build . -o dist/index.js",
+    "build": "rm -fr ./vendor/src && ln -s ../vendor/ ./vendor/src && GOPATH=$PWD/vendor gopherjs build . -o dist/index.js",
+    "pretest": "npm run build",
     "test": "npx mocha $(find . -name '*.spec.js' -not -path './node_modules/*')"
   },
   "repository": {
