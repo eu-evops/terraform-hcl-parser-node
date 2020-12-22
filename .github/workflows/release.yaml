@@ -38,6 +38,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ^10.23
+          registry-url: "https://registry.npmjs.org"
 
       - run: go get github.com/gopherjs/gopherjs
         name: Get GopherJS
