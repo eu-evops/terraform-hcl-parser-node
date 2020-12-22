@@ -1,5 +1,5 @@
 {
-  "name": "@evops/hlc-parser",
+  "name": "@evops/hcl-parser",
   "version": "1.0.0",
   "description": "HLC parser for Terraform HLC modules",
   "main": "index.js",
