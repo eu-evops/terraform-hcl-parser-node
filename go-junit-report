@@ -1,0 +1,4 @@
+=== RUN   TestComprehensiveHclParse
+--- PASS: TestComprehensiveHclParse (0.00s)
+PASS
+ok  	github.com/eu-evops/hcl-parser	(cached)
