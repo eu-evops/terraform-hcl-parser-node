@@ -42,28 +42,27 @@ type Root struct {
 
 // Parse a HCL string into a JSON object
 func parse(input string) (output *js.Object) {
-	parsed, err := parseHcl(input)
+	module, err := parseHcl(input)
 	if err != nil {
 		return
 	}
 
-	output = js.Global.Get("JSON").Call("parse", string(parsed))
+	moduleJSON, err := json.Marshal(module)
+	if err != nil {
+		return
+	}
+
+	output = js.Global.Get("JSON").Call("parse", string(moduleJSON))
 
 	return
 }
 
-func parseHcl(input string) (string, error) {
+func parseHcl(input string) (*tfconfig.Module, error) {
 	parser := hclparse.NewParser()
 	hclFile, _ := parser.ParseHCL([]byte(input), "<input>")
 
 	module := tfconfig.NewModule("<virtual>")
 	tfconfig.LoadModuleFromFile(hclFile, module)
 
-	moduleJSON, err := json.Marshal(module)
-
-	if err != nil {
-		return "", err
-	}
-
-	return string(moduleJSON), nil
+	return module, nil
 }
