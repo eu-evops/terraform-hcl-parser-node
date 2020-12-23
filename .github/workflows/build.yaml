@@ -33,7 +33,14 @@ jobs:
       - run: go mod vendor
 
       - name: Test
-        run: go test -v ./...
+        run: go test -v ./...  2>&1 | go-junit-report > report.xml
+
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1.6
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          files: report.xml
 
       - name: Set up Node 10.10
         uses: actions/setup-node@v2
