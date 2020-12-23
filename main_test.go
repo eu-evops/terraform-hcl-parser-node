@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 	"testing"
 
@@ -70,8 +69,6 @@ func TestComprehensiveHclParse(t *testing.T) {
 	assert.Equal(t, "data", module.DataResources["data.null.test"].Mode.String())
 	assert.Equal(t, "test", module.DataResources["data.null.test"].Provider.Alias)
 	assert.Equal(t, "null", module.DataResources["data.null.test"].Provider.Name)
-
-	fmt.Printf("%#v", module.ManagedResources)
 
 	assert.Equal(t, "test", module.ManagedResources["null.test"].Name)
 	assert.Equal(t, "managed", module.ManagedResources["null.test"].Mode.String())
